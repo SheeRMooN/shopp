@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text=""></title>
+    <!--
+         поменять css, скачать или написать свой (bootstrap.cdn отсюда сылка на стиль)
+    -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div th:insert="blocks/header "></div>
+
+    <div th:insert="blocks/main-content"></div>
+
+    <div th:insert="blocks/footer"></div>
+</body>
+</html>
