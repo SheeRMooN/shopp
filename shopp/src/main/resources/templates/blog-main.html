@@ -2,22 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title th:text="${title}"></title>
-    <!--
-         поменять css, скачать или написать свой (bootstrap.cdn отсюда сылка на стиль)
-    -->
+    <title >Blog Menu</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
-<div th:insert="blocks/header "></div>
-
-
-<div class="container mt-10">
-    <h1 th:text="${title}"></h1>
-</div>
-
-<div th:insert="blocks/footer"></div>
-
+    <header th:insert="blocks/header "></header>
+    <blog-menu th:insert="blocks/blog-menu"></blog-menu>
+    <div>
+        <br>
+        <h1 class="container mt-10">
+            Добавление, редактирование и удаление статей.
+        </h1>
+        <br>
+    </div>
+    <footer th:insert="blocks/footer"></footer>
 </body>
 </html>

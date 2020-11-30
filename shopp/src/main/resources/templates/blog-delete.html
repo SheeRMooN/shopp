@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title th:text=""></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+    <title>Menu Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <header th:insert="blocks/header "></header>
-    <main-content th:insert="blocks/main-content"></main-content>
+    <header th:insert="blocks/header"></header>
+    <blog-menu th:insert="blocks/blog-menu"></blog-menu>
+
     <footer th:insert="blocks/footer"></footer>
 </body>
 </html>
