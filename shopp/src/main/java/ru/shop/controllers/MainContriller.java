@@ -20,4 +20,16 @@ public class MainContriller {
         return "about";
     }
 
+    @GetMapping("/shop")
+    public String shop(Model model){
+        model.addAttribute("title", "Shop Package");
+        return "shop";
+    }
+    @GetMapping("/login")
+    public String login(Model model){
+        model.addAttribute("title", "Login Package");
+        return "login";
+    }
+
+
 }
