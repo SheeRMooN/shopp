@@ -9,16 +9,16 @@
     <header th:insert="blocks/header"></header>
     <blog-menu th:insert="blocks/blog-menu"></blog-menu>
 
-    <div>
+    <div class="container mt-5 mb-5">
         <h1>Create Blog</h1>
-        <form action="blog-create.html" method="post">
+        <form action="/blog/create" method="post">
             <input type="text" name="title" placeholder="Введите название статьи." class="form-control">
             <input type="text" name="anons" placeholder="Введите анонос статьи." class="form-control">
-            <textarea name="full_text" placeholder="Введите статью."   class="form-control" rows="20"></textarea>
+            <textarea name="full_text" placeholder="Введите статью."   class="form-control" rows="10"></textarea><br>
             <button type="submit" class="btn btn-success" >Добавить статью</button>
         </form>
     </div>
 
-    <footer th:insert="blocks/footer"></footer>
+    <footer th:insert="blocks/footer" ></footer>
 </body>
 </html>

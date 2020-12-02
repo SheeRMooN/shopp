@@ -8,13 +8,23 @@
 <body>
     <header th:insert="blocks/header "></header>
     <blog-menu th:insert="blocks/blog-menu"></blog-menu>
-    <div>
-        <br>
-        <h1 class="container mt-10">
-            Добавление, редактирование и удаление статей.
+
+
+    <div class="container mt-5 mb-5">
+        <h1 >
+            All Blogs.
         </h1>
-        <br>
+        <div th:each="element : ${posts}" class="alert alert-info ">
+            <h1>READ BLOG</h1>
+            <h3 th:text="${element.getTitle()}"/>
+            <p th:text="${element.getAnons()}"/>
+            <a th:href="'/blog/' + ${element.getId()}">Details</a>
+            <a th:href="'/blog/' + ${element.getId()}">Edit</a>
+            <a th:href="'/blog/' + ${element.getId()}">Delete</a>
+        </div>
     </div>
+
+
     <footer th:insert="blocks/footer"></footer>
 </body>
 </html>
