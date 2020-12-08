@@ -60,10 +60,52 @@ public class BlogController {
     }
     @GetMapping("/blog/{id}")
     public String blogReadId(@PathVariable (value = "id") long id, Model model){
+        if (!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
         Optional<Post> post = postRepository.findById(id);
         ArrayList<Post> postArray = new ArrayList<>();
         post.ifPresent(postArray::add);
-        model.addAttribute("post",post);
+        model.addAttribute("post",postArray);
         return "blog-read";
+    }
+
+    @GetMapping("blog/{id}/delete")
+    public String blogIdDeleteGet(@PathVariable(value = "id") long id, Model model){
+        if (!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
+        postRepository.deleteById(id);
+        return "redirect:/blog";
+    }
+
+    @GetMapping("blog/{id}/update")
+    public String blogIdUpdate(@PathVariable(value = "id") long id,
+                               Model model){
+        if (!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
+        Optional<Post> post = postRepository.findById(id);
+        ArrayList<Post> postArray = new ArrayList<>();
+        post.ifPresent(postArray::add);
+        model.addAttribute("post",postArray);
+        return "blog-update";
+    }
+    @PostMapping("blog/{id}/update")
+    public  String blogIdUpdatePost(@PathVariable(value = "id") long id,
+                                    @RequestParam String title,
+                                    @RequestParam String anons,
+                                    @RequestParam String full_text,
+                                    Model model){
+        if (!postRepository.existsById(id)){
+            return "redirect:/blog";
+        }
+        Post post = postRepository.findById(id).orElseThrow();
+        post.setTitle(title);
+        post.setAnons(anons);
+        post.setFull_text(full_text);
+        post.setViews(0);
+        postRepository.save(post);
+        return "redirect:/blog";
     }
 }
